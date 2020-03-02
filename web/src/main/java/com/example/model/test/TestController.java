@@ -1,5 +1,6 @@
-package com.example.web.model.test;
+package com.example.model.test;
 
+import com.example.facade.TestFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,17 +11,13 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class TestController {
 
-    private final RestTemplate restTemplate;
-
     @Autowired
-    public TestController(RestTemplate restTemplate) {this.restTemplate = restTemplate;}
-
+    private TestFacade testFacade;
 
 
     @GetMapping(value = "test")
     public String test() {
-
-        return restTemplate.getForObject("http://127.0.0.1:8080/test" , String.class);
+        return testFacade.test();
 
     }
 
