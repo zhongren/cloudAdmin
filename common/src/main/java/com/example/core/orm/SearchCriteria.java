@@ -1,0 +1,16 @@
+package com.example.core.orm;
+
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+public class SearchCriteria {
+    private String tableName;
+    private List<String> columnList;
+    private List<Condition> conditionList;
+
+    public SearchCriteria(String tableName) {
+        this.tableName = tableName;
+    }
+}

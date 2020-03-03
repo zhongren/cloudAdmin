@@ -28,14 +28,24 @@
     </properties>
 
     <modules>
+        <!-- 服务者 -->
         <module>app</module>
+        <!-- 消费者 -->
         <module>web</module>
+        <!-- 接口层 -->
         <module>facade</module>
+        <!-- 公共依赖 -->
+        <module>common</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <!--子项目依赖-->
+            <dependency>
+                <groupId>com.example</groupId>
+                <artifactId>common</artifactId>
+                <version>${version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.example</groupId>
                 <artifactId>facade</artifactId>
@@ -67,20 +77,45 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.1.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.9</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>28.2-jre</version>
+            </dependency>
+            <!-- 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>1.2.12</version>
+            </dependency>
+            <!-- Hibernate  -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>5.4.10.Final</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
 
     <build>
         <resources>
-            <!-- 扫描xml文件 -->
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
             </resource>
-            <!-- 扫描配置文件 -->
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
@@ -90,7 +125,6 @@
             </resource>
         </resources>
         <plugins>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
