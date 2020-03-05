@@ -1,8 +1,8 @@
 package com.example.model.test.controller;
 
 
-import com.example.core.base.BaseController;
-import com.example.moudle.test.TestFacade;
+import com.example.model.BaseController;
+import com.example.module.test.TestFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

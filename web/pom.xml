@@ -16,7 +16,6 @@
     <description>web</description>
 
 
-
     <dependencies>
         <dependency>
             <groupId>com.example</groupId>
@@ -72,6 +71,8 @@
             <artifactId>hutool-all</artifactId>
         </dependency>
 
+
+
     </dependencies>
 
     <build>
@@ -79,6 +80,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.example.WebApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

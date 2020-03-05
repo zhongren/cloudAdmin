@@ -25,6 +25,7 @@
         <file_encoding>UTF-8</file_encoding>
         <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <knife4j.version>2.0.0</knife4j.version>
     </properties>
 
     <modules>
@@ -34,18 +35,12 @@
         <module>web</module>
         <!-- 接口层 -->
         <module>facade</module>
-        <!-- 公共依赖 -->
-        <module>common</module>
+
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <!--子项目依赖-->
-            <dependency>
-                <groupId>com.example</groupId>
-                <artifactId>common</artifactId>
-                <version>${version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.example</groupId>
                 <artifactId>facade</artifactId>

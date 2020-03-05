@@ -1,6 +1,6 @@
 package com.example.model.test.req;
 
-import com.example.moudle.user.dto.UserDto;
+import com.example.module.user.dto.UserDto;
 import lombok.Data;
 
 @Data
