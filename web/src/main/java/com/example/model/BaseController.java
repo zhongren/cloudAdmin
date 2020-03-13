@@ -1,8 +1,10 @@
 package com.example.model;
 
 
-import com.example.core.dto.ParamDto;
-import lombok.extern.slf4j.Slf4j;
+
+
+
+import com.example.common.dto.ParamDto;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -14,7 +16,6 @@ import java.util.*;
  * @author zhongren
  * @date 2017/11/8
  */
-@Slf4j
 public class BaseController {
 
 /*
@@ -77,17 +78,17 @@ public class BaseController {
      * @param paramDto
      */
     private void filterParam(ParamDto paramDto) {
-        if (paramDto == null || paramDto.isEmpty()) {
+        if (paramDto == null || paramDto.getParam().isEmpty()) {
             return;
         } else {
             Map<String, Object> map = new HashMap<>();
-            for (Map.Entry<String, Object> entry : paramDto.entrySet()) {
+            for (Map.Entry<String, Object> entry : paramDto.getParam().entrySet()) {
                 if (entry.getValue() != null && !StringUtils.isEmpty(entry.getValue().toString())) {
                     map.put(entry.getKey(), entry.getValue());
                 }
             }
-            paramDto.clear();
-            paramDto.putAll(map);
+            paramDto.getParam().clear();
+            paramDto.getParam().putAll(map);
         }
     }
 
@@ -113,7 +114,7 @@ public class BaseController {
 
         Map<String, String> orderMap = paramBean.getOrderMap();
         orderMap.put(paramBean.getOrderField(), paramBean.getOrderType());
-        paramBean.putAll(getParamMap(ParamDto.PAGE_NUM, ParamDto.PAGE_SIZE, ParamDto.ORDER_TYPE, ParamDto.ORDER_FIELD));
+        paramBean.getParam().putAll(getParamMap(ParamDto.PAGE_NUM, ParamDto.PAGE_SIZE, ParamDto.ORDER_TYPE, ParamDto.ORDER_FIELD));
         filterParam(paramBean);
         return paramBean;
     }

@@ -29,18 +29,33 @@
     </properties>
 
     <modules>
-        <!-- 服务者 -->
+        <!-- 通用 -->
+        <module>common</module>
+        <!-- 通用 -->
+        <module>core</module>
+        <!-- api -->
         <module>app</module>
-        <!-- 消费者 -->
+        <!-- 网关 -->
+        <module>gateway</module>
+        <!-- client -->
         <module>web</module>
-        <!-- 接口层 -->
+        <!-- 接口定义 -->
         <module>facade</module>
-
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <!--子项目依赖-->
+            <dependency>
+                <groupId>com.example</groupId>
+                <artifactId>common</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.example</groupId>
+                <artifactId>core</artifactId>
+                <version>${version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.example</groupId>
                 <artifactId>facade</artifactId>
@@ -56,7 +71,11 @@
                 <artifactId>web</artifactId>
                 <version>${version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.example</groupId>
+                <artifactId>gateway</artifactId>
+                <version>${version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -98,6 +117,12 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-entitymanager</artifactId>
                 <version>5.4.10.Final</version>
+            </dependency>
+            <!-- Feign OkHttp -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>10.8</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

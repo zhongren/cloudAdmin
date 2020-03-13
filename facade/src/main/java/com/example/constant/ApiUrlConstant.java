@@ -4,6 +4,7 @@ public interface ApiUrlConstant {
     String OPEN="open";
 
     interface USER{
-        String CREATE_USER="user/create";
+        String USER_CREATE ="user/create";
+        String USER_PAGE="user/page";
     }
 }

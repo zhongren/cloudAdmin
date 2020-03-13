@@ -12,10 +12,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 public class WebApplication {
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
     public static void main(String[] args) {
         SpringApplication.run(WebApplication.class, args);
     }
