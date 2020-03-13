@@ -5,7 +5,7 @@ import com.example.constant.ApiUrlConstant;
 import com.example.constant.AppConstant;
 import com.example.common.dto.ParamDto;
 import com.example.common.dto.ResultDto;
-import com.example.module.user.dto.UserPo;
+import com.example.module.user.dto.UserDto;
 import com.example.module.user.fallback.UserFallBack;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface UserFacade {
 
     @PostMapping(value = ApiUrlConstant.USER.USER_CREATE)
-    ResultDto create(@RequestBody UserPo userDto);
+    ResultDto create(@RequestBody UserDto userDto);
 
     @PostMapping(value = ApiUrlConstant.USER.USER_PAGE)
     ResultDto page(@RequestBody ParamDto paramDto);

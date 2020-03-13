@@ -8,7 +8,7 @@ import com.example.common.dto.ResultDto;
 import com.example.model.BaseController;
 import com.example.model.user.req.UserCreateReq;
 import com.example.module.user.UserFacade;
-import com.example.module.user.dto.UserPo;
+import com.example.module.user.dto.UserDto;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,7 +29,7 @@ public class UserController extends BaseController {
     @ApiOperation(value = "新增用户")
     @PostMapping(value = ApiUrlConstant.USER.USER_CREATE)
     public ResultDto userCreate(@RequestBody UserCreateReq userCreateReq) {
-        UserPo userDto = new UserPo();
+        UserDto userDto = new UserDto();
         BeanUtil.copyProperties(userCreateReq, userDto);
         ResultDto resultDto=userFacade.create(userDto);
         return resultDto;

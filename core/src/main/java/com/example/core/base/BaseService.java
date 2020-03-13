@@ -35,7 +35,7 @@ public abstract class BaseService {
     @PostConstruct
     public abstract void init();
 
-    public <T> PageInfoDto<T> page(ParamDto paramDto, Class<T> clazz) {
+    public  <T> PageInfoDto<T> page(ParamDto paramDto, Class<T> clazz) {
         Page page = PageUtil.startPage(paramDto);
         List<Map<String, Object>> data = baseRepo.findMapList(paramDto.getParam());
         List<T> list = BeanUtil.convertMap2List(data, clazz);

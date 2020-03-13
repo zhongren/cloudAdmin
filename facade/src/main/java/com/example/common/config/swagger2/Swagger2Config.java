@@ -1,6 +1,7 @@
 package com.example.common.config.swagger2;
 
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -14,6 +15,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
+    @Autowired
+    Swagger2Properties swagger2Properties;
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -28,7 +32,7 @@ public class Swagger2Config {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("API").description("接口文档").contact("zhongren")
-                .termsOfServiceUrl("http://127.0.0.1:8081").version("1.0.0").build();
+        return new ApiInfoBuilder().title(swagger2Properties.getTitle()).description(swagger2Properties.getDescription()).contact(swagger2Properties.getContact())
+                .termsOfServiceUrl(swagger2Properties.getServiceUrl()).version(swagger2Properties.getVersion()).build();
     }
 }
