@@ -1,3 +1,5 @@
+
+gateway->web->app
 ##控制台地址
 注册中心nacos:http://localhost:8848/nacos
 

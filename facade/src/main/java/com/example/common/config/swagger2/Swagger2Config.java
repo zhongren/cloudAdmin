@@ -32,7 +32,7 @@ public class Swagger2Config {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title(swagger2Properties.getTitle()).description(swagger2Properties.getDescription()).contact(swagger2Properties.getContact())
-                .termsOfServiceUrl(swagger2Properties.getServiceUrl()).version(swagger2Properties.getVersion()).build();
+        return new ApiInfoBuilder().title("API").description("接口文档").contact("admin")
+                .termsOfServiceUrl(swagger2Properties.getServiceUrl()).version("1.0").build();
     }
 }

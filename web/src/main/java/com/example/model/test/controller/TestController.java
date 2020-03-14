@@ -16,6 +16,7 @@ public class TestController extends BaseController {
 
     @GetMapping(value = "test")
     public String test() {
+        System.out.println("ttt");
         return testFacade.test();
 
     }
