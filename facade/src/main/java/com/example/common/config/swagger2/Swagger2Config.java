@@ -33,6 +33,6 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("API").description("接口文档").contact("admin")
-                .termsOfServiceUrl(swagger2Properties.getServiceUrl()).version("1.0").build();
+                .termsOfServiceUrl("http://127.0.0.1:8081").version("1.0").build();
     }
 }
